@@ -63,7 +63,7 @@ Exceção: código duplicado na mesma conta (409).
 4. Se houver saldo suficiente na data, persiste a venda.
 5. API recalcula a posição e snapshots afetados.
 
-Exceção: venda acima do saldo disponível (422 ou 409 conforme contrato do endpoint; código de negócio INSUFFICIENT_QUANTITY).
+Exceção: venda acima do saldo disponível (HTTP 422; código de negócio INSUFFICIENT_QUANTITY).
 
 ## UC-08 — Atualizar preço
 1. Usuário informa o preço atual de um ativo próprio.
