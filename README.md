@@ -2,39 +2,56 @@
 
 API responsável pelas regras de negócio, autenticação, persistência e disponibilização dos dados do InvestTrack.
 
-> **Status:** planejamento e especificação. A implementação ainda não foi iniciada.
+> **Status:** especificação da V1 concluída; implementação ainda não iniciada.
 
 ## Objetivo
 
-O InvestTrack é uma aplicação web para controle e acompanhamento de investimentos já realizados pelo usuário. O sistema não executa ordens de compra ou venda, não movimenta dinheiro e não se conecta a corretoras ou provedores de cotações na versão 1.0.
+O InvestTrack é uma aplicação Web para controle e acompanhamento de investimentos já realizados pelo usuário. O sistema não executa ordens de compra ou venda, não movimenta dinheiro e não se conecta a corretoras ou provedores de cotações na versão 1.0.
 
 ## Escopo da versão 1.0
 
-- Aplicação consumida por uma interface Web.
 - Cadastro, autenticação e perfil de usuário.
 - Três categorias fixas: Ações, Fundos Imobiliários e Renda Fixa.
 - Cadastro manual de ativos.
 - Registro manual de compras e vendas.
 - Atualização manual de preços.
 - Consulta, edição e exclusão de movimentações.
+- Cálculo de posição por custo médio ponderado móvel.
 - Dashboard e histórico diário do patrimônio.
 - Isolamento dos dados de cada usuário.
 
-Funcionalidades como aplicativo móvel, importação CSV, integração com corretoras/cotações, taxas operacionais e recuperação automática de senha estão fora do escopo inicial.
+Importação CSV, integração com corretoras/cotações, aplicativos móveis, taxas operacionais e recuperação automática de senha estão fora do escopo inicial.
 
-## Direção técnica inicial
-
-As tecnologias abaixo são a proposta de trabalho e serão formalizadas nos documentos de arquitetura antes da implementação:
+## Tecnologias definidas
 
 - C# e .NET 10
 - ASP.NET Core Web API
+- ASP.NET Core Identity com cookie HttpOnly
 - PostgreSQL
 - Entity Framework Core
-- ASP.NET Core Identity
 - xUnit
 - OpenAPI/Swagger
+- Docker Compose para ambiente local
 
-A arquitetura prevista é um monólito modular organizado em camadas. Microserviços e abstrações adicionais não fazem parte do plano inicial.
+## Documentação para desenvolvimento
+
+### Requisitos
+- [Visão do produto](docs/requirements/01-product-vision.md)
+- [Escopo da V1](docs/requirements/02-project-scope.md)
+- [Requisitos funcionais](docs/requirements/03-functional-requirements.md)
+- [Requisitos não funcionais](docs/requirements/04-non-functional-requirements.md)
+- [Regras de negócio](docs/requirements/05-business-rules.md)
+- [Casos de uso](docs/requirements/06-use-cases.md)
+- [Critérios de aceite](docs/requirements/07-acceptance-criteria.md)
+
+### Arquitetura
+- [Arquitetura do sistema](docs/architecture/01-system-architecture.md)
+- [Modelo de dados](docs/architecture/02-data-model.md)
+- [Contrato da API](docs/architecture/03-api-contract.md)
+- [Plano de implementação](docs/architecture/04-implementation-plan.md)
+
+### Decisões técnicas
+- [Registro de decisões](docs/decisions/README.md)
 
 ## Estrutura planejada
 
@@ -56,14 +73,7 @@ InvestTrack-Backend/
 └── README.md
 ```
 
-As pastas `src/` e `tests/` serão criadas quando iniciarmos a implementação. Não há projetos .NET nesta etapa.
-
-## Documentação
-
-- [Requisitos](docs/requirements/README.md)
-- [Arquitetura](docs/architecture/README.md)
-- [Decisões técnicas](docs/decisions/README.md)
-- [Diagramas](docs/diagrams/README.md)
+As pastas src e tests serão criadas na Fase 0 do plano de implementação. Não há projetos .NET nesta etapa.
 
 ## Princípios do projeto
 
@@ -71,8 +81,16 @@ As pastas `src/` e `tests/` serão criadas quando iniciarmos a implementação. 
 2. Aplicar regras de negócio no backend.
 3. Garantir isolamento dos dados por usuário.
 4. Priorizar código testável, legível e sustentável.
-5. Documentar decisões relevantes antes de implementá-las.
+5. Não criar infraestrutura ou abstrações sem necessidade concreta.
+6. Seguir os requisitos e critérios de aceite documentados.
 
-## Estado atual
+## Como começar
 
-Estamos na etapa de levantamento e especificação dos requisitos. O desenvolvimento começará após a revisão dos requisitos, regras de negócio, arquitetura e contratos da API.
+Leia, nesta ordem:
+1. Escopo da V1.
+2. Requisitos funcionais e não funcionais.
+3. Regras de negócio.
+4. Arquitetura e modelo de dados.
+5. Plano de implementação.
+
+A primeira tarefa de desenvolvimento será a Fase 0: preparar a solução .NET 10 e o PostgreSQL local. Não iniciar módulos funcionais antes do ambiente e dos testes básicos estarem prontos.
