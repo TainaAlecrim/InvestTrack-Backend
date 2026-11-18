@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="InvestTrack.Domain/InvestTrack.Domain.csproj" Id="271a0ef9-9cbb-41d8-8d21-1c0a03714af0" />
+  <Project Path="src/InvestTrack.Api/InvestTrack.Api.csproj" Id="b23ccac1-09c8-4824-a040-dfa507d1955f" />
+  <Project Path="src/InvestTrack.Infrastructure/InvestTrack.Infrastructure.csproj" Id="70c94e4f-ded8-49b2-9b61-abcbb04a311a" />
+  <Project Path="tests/InvestTrack.IntegrationTests/InvestTrack.IntegrationTests.csproj" Id="49e07445-9825-4cce-9179-7b730cd6cf48" />
+  <Project Path="tests/InvestTrack.UnitTests/InvestTrack.UnitTests.csproj" Id="0f6903af-ea37-4e71-9ca4-4c563ed8f2c9" />
+</Solution>
