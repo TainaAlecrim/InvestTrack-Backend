@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\InvestTrack.Domain\InvestTrack.Domain.csproj" />
+    <ProjectReference Include="..\..\src\InvestTrack.Domain\InvestTrack.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
