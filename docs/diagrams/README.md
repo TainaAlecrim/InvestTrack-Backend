@@ -1,9 +1,13 @@
 # Diagramas
 
-Esta pasta reunirá os diagramas do projeto, como:
-- Diagrama de contexto.
-- Diagrama de componentes.
-- Diagrama entidade-relacionamento.
-- Diagramas de sequência dos principais fluxos.
+Diagramas serão versionados nesta pasta. Usar Mermaid em arquivos Markdown quando possível, para que continuem editáveis por texto.
 
-Os diagramas serão adicionados quando os requisitos e a arquitetura correspondente estiverem definidos.
+Diagramas previstos:
+- Contexto da aplicação e clientes.
+- Dependências entre projetos.
+- Modelo entidade-relacionamento.
+- Sequência de autenticação e sessão única.
+- Sequência de registro de compra/venda.
+- Fluxo de geração e recálculo de snapshots.
+
+Os diagramas podem ser adicionados durante a implementação, quando a estrutura real e os contratos estiverem confirmados.
