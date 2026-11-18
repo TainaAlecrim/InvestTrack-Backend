@@ -192,7 +192,7 @@ O dashboard deve retornar:
 - Informar quando houver datas sem snapshot disponível.
 
 ### RF-026 — Recalcular histórico afetado
-Após alteração ou exclusão de movimentação, o backend deve recalcular snapshots da data da operação alterada até a data atual. O recálculo deve preservar as datas e preços históricos já registrados.
+Após alteração ou exclusão de movimentação, o backend deve recalcular snapshots da data da operação alterada até a data atual. O recálculo deve preservar as datas e preços históricos já registrados. Ao substituir um preço manual de uma data, recalcular snapshots dessa data até o dia anterior ao próximo preço registrado para o mesmo ativo; se não houver preço posterior, recalcular até a data atual. A alteração deve ser transacional.
 
 ## Regras comuns da API
 
