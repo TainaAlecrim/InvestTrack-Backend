@@ -108,7 +108,7 @@ Cada cenário deve ser coberto por teste automatizado quando aplicável. Testes 
 
 ## Qualidade mínima para entrega
 
-- Todos os critérios CA-001 a CA-031 cobertos por testes apropriados.
+- Todos os critérios CA-001 a CA-037 cobertos por testes apropriados.
 - Build sem erros.
 - Migrations aplicáveis em banco vazio.
 - API documentada com OpenAPI.
