@@ -68,7 +68,7 @@
 3. Implementar BackgroundService às 23:55 local.
 4. Implementar recuperação de datas ausentes.
 5. Implementar idempotência.
-6. Recalcular snapshots após movimentação retroativa ou atualização de preço.
+6. Recalcular snapshots após movimentação retroativa ou correção de preço, até a próxima cotação registrada para o ativo.
 7. Criar endpoint de consulta da evolução.
 
 **Pronto quando:** CA-028 a CA-031 passam.
