@@ -1,0 +1,37 @@
+## .NET
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Tt]est[Rr]esult*/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+
+## NuGet
+*.nupkg
+*.snupkg
+
+## Environment and secrets
+.env
+.env.*
+!.env.example
+secrets.json
+appsettings.*.local.json
+
+## Operating system
+.DS_Store
+Thumbs.db
