@@ -119,3 +119,10 @@ Usar decimal em C# e numeric(18,6) para quantidade, preço e valores derivados. 
 
 ## 9. Posições não são tabela na V1
 Não criar tabela Positions. A posição é derivada das movimentações: quantidade atual, preço médio móvel e custo das posições. Otimizações futuras só após medição de desempenho.
+
+
+## 10. Concorrência em movimentações
+
+Todas as operações de inclusão, edição e exclusão de movimentações devem iniciar transação e bloquear a linha do Asset correspondente no PostgreSQL antes de revalidar o histórico. Utilizar bloqueio de linha (SELECT FOR UPDATE) para serializar duas alterações simultâneas no mesmo ativo. Após obter o lock, carregar as movimentações, validar o saldo cronológico e persistir a alteração.
+
+Isso evita que duas vendas concorrentes sejam aceitas com base no mesmo saldo antigo. Operações em ativos diferentes podem ocorrer em paralelo.
