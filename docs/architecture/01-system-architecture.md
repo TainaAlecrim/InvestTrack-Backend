@@ -17,6 +17,30 @@ Não criar microserviços, filas, CQRS, MediatR ou repositórios genéricos na V
 - **InvestTrack.UnitTests:** testes unitários do domínio e cálculos.
 - **InvestTrack.IntegrationTests:** testes de integração com PostgreSQL.
 
+## 2.1 Estrutura interna inicial dos projetos
+
+Manter a organização pequena e crescer somente quando necessário:
+
+InvestTrack.Api:
+- Controllers/ ou Endpoints/ por recurso.
+- Contracts/Requests e Contracts/Responses para DTOs.
+- Middleware/ para tratamento de erros e sessão.
+- Configuration/ para registro de serviços, CORS e autenticação.
+
+InvestTrack.Domain:
+- Entities/
+- Enums/
+- Services/ para cálculos e regras que envolvam mais de uma entidade.
+- Exceptions/
+
+InvestTrack.Infrastructure:
+- Persistence/ para DbContext e configurações EF.
+- Persistence/Migrations/
+- Identity/ para configuração e validação de sessão.
+- BackgroundJobs/ para o processamento diário.
+
+Não criar uma pasta ou classe genérica sem responsabilidade concreta. Começar com poucos arquivos e extrair serviços quando houver lógica reutilizável ou necessidade de teste isolado.
+
 ## 3. Dependências permitidas
 
 - Api pode referenciar Domain e Infrastructure.
