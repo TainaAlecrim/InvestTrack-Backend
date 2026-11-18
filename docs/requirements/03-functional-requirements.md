@@ -57,6 +57,9 @@ O sistema deve permitir cadastro com nome, e-mail e senha.
 - Após alteração de senha, invalidar a sessão atual e exigir novo login.
 - E-mail não pode ser alterado na V1.
 
+### RF-007 — Exclusão de conta (fora da V1)
+A versão 1.0 não deve disponibilizar endpoint ou interface para o usuário excluir a própria conta. Não implementar fluxo de exclusão nesta entrega.
+
 ### RF-008 — Data de cadastro
 - A data de criação deve ser persistida pelo servidor.
 - Deve ser retornada no perfil e apresentada no fuso America/Sao_Paulo.
