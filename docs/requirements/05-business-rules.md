@@ -117,9 +117,13 @@ Só pode existir um snapshot por usuário, categoria e data. O processamento rep
 Para cada usuário e dia, gerar quatro visões: total consolidado, Ações, Fundos Imobiliários e Renda Fixa.
 
 ### RN-027 — Correção de histórico
-Alteração ou exclusão retroativa de movimentação deve provocar recálculo dos snapshots da data afetada até a data atual. Uma atualização de preço no dia deve atualizar o snapshot do dia se ele já existir.
+Alteração ou exclusão retroativa de movimentação deve provocar recálculo dos snapshots da data afetada até a data atual. Ao substituir preço de uma data, recalcular snapshots dessa data até o dia anterior ao próximo preço já registrado para o ativo; se não houver preço posterior, recalcular até a data atual. Se o snapshot do dia já existir, ele também deverá ser atualizado.
 
 ## Arredondamento
 
 ### RN-028 — Precisão
 Manter precisão decimal durante os cálculos. Arredondar para duas casas somente na apresentação de valores em R$. Persistir os snapshots com precisão de seis casas decimais.
+
+
+### RN-029 — Concorrência no mesmo ativo
+Inclusão, edição e exclusão de movimentações do mesmo ativo devem ser serializadas com bloqueio da linha do ativo dentro de transação. O histórico deve ser revalidado após obter o bloqueio e antes de persistir. Uma operação concorrente não pode deixar o saldo negativo.
