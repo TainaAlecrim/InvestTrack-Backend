@@ -1,12 +1,14 @@
 # Arquitetura
 
-Esta pasta conterá a documentação da arquitetura do InvestTrack Backend.
+Documentação técnica que orienta a implementação do backend.
 
-Documentos previstos:
-- Visão arquitetural e responsabilidades das camadas.
-- Modelo de dados e relacionamentos.
-- Contratos e endpoints da API.
-- Estratégia de autenticação e autorização.
-- Estratégia de testes e configuração dos ambientes.
+## Documentos
 
-A arquitetura final será definida após o fechamento dos requisitos. A direção inicial é um monólito modular em camadas, sem microserviços na versão 1.0.
+- [01-system-architecture.md](01-system-architecture.md) — camadas, dependências, autenticação e processo diário.
+- [02-data-model.md](02-data-model.md) — entidades, campos, relações, índices e restrições.
+- [03-api-contract.md](03-api-contract.md) — endpoints, payloads, convenções e erros.
+- [04-implementation-plan.md](04-implementation-plan.md) — ordem de construção e definição de pronto por fase.
+
+## Direção
+
+A V1 será um monólito modular em camadas, com ASP.NET Core Web API, PostgreSQL, EF Core e ASP.NET Core Identity. Não criar microserviços ou infraestrutura distribuída.
