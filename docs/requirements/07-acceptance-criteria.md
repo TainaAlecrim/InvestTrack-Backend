@@ -114,3 +114,22 @@ Cada cenário deve ser coberto por teste automatizado quando aplicável. Testes 
 - API documentada com OpenAPI.
 - Nenhum segredo versionado.
 - Nenhum teste de isolamento ou cálculo financeiro crítico pode ficar ignorado.
+
+
+### CA-032 — Atualização de dados do ativo
+**Dado** um ativo sem duplicidade, **quando** alterar código ou nome, **então** a API salva os novos dados. Se existir movimentação, a categoria permanece imutável.
+
+### CA-033 — Expiração de sessão
+**Dado** sessão sem atividade por mais de 30 minutos ou com mais de 12 horas desde a criação, **quando** consultar endpoint protegido, **então** a API retorna 401 e exige novo login.
+
+### CA-034 — Bloqueio por tentativas de login
+**Dado** cinco tentativas inválidas consecutivas, **quando** ocorrer nova tentativa durante os 15 minutos seguintes, **então** a autenticação é bloqueada sem revelar se o e-mail está cadastrado.
+
+### CA-035 — Preço corrigido e snapshots
+**Dado** snapshots existentes e preço de um ativo corrigido em uma data, **quando** salvar a correção, **então** os snapshots dessa data até a véspera do próximo preço registrado são recalculados.
+
+### CA-036 — Paginação e filtros
+**Dado** mais registros que o tamanho de página, **quando** consultar ativos ou movimentações, **então** a API respeita filtros, ordenação e limite máximo de 100 itens por página.
+
+### CA-037 — Movimento concorrente
+**Dado** duas requisições simultâneas de venda para o mesmo ativo, **quando** a soma das vendas superar o saldo disponível, **então** no máximo a quantidade que respeita o saldo é persistida e o restante é rejeitado.
